@@ -13,10 +13,12 @@ export default function Home() {
         {/* Top Section: Header (Left) and Lottie Animation (Right) */}
         <div className="flex-1 flex items-center ">
           {/* Header (Left-Aligned) */}
-          <div className="text-right w-1/2">
-            <Header />
+          <div className="flex justify-center items-center h-full">
+            <div className="flex flex-col items-center justify-center h-full">
+              <Header />
+              <Quotes />
+            </div>
           </div>
-
           {/* Lottie Animation (Right-Aligned) */}
           <div className="flex justify-center w-1/2">
             <LottieAnimation
