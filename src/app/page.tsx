@@ -32,7 +32,8 @@ export default function Home() {
         <div className="flex-1 flex flex-col justify-center bg-white text-black p-6">
           <Features />
           <div className="flex mt-8 justify-center my-5">
-            <Button label="I’m a Student" />
+            <Button 
+              label="I’m a Student" />
             <Button
               label="I’m a Startup"
               className="ml-4 hover:bg-purple-700"
