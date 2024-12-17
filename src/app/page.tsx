@@ -15,7 +15,7 @@ export default function Home() {
           {/* Header (Left-Aligned) */}
           <div className="flex justify-center items-center h-full">
             <div className="flex flex-col items-center justify-center h-full">
-              <Header />
+              <Header title='The bridge between opportunity and talent.'/>
               <Quotes />
             </div>
           </div>
