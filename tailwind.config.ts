@@ -15,7 +15,7 @@ module.exports = {
         },
       },
       animation: {
-        slideIn: 'slideIn 2s ease-out forwards',
+        slideIn: 'slideIn 1s ease-out forwards',
         fade: 'fade 6s ease-in-out forwards', // Full cycle is 12s
       },
     },

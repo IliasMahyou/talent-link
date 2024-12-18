@@ -11,7 +11,8 @@ export default function Home() {
       <Navbar />
       <main className="min-h-screen flex flex-col">
         {/* Top Section: Header (Left) and Lottie Animation (Right) */}
-        <div className="flex-1 flex items-center ">
+        <div className="flex-1 flex items-center  "
+        >
           {/* Header (Left-Aligned) */}
           <div className="flex justify-center items-center h-full">
             <div className="flex flex-col items-center justify-center h-full">
