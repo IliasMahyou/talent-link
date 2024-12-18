@@ -6,7 +6,7 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-color text-white flex items-center justify-center">
+      <main className="min-h-screen bg-sky-900 text-white flex items-center justify-center">
         {/* Wrapper Section for Header and Lottie */}
         <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl p-6 md:p-12 space-y-8 md:space-y-0 md:space-x-8">
           {/* Left: Header Section */}
