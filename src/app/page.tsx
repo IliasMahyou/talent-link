@@ -1,47 +1,93 @@
-import Header from './components/Header';
-import Quotes from './components/Quotes';
-import Features from './components/Features';
-import Button from './components/Button';
-import Navbar from './components/Navbar';
-import LottieAnimation from './components/LottieAnitmation';
+"use client";
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import Header from "./components/Header";
+import Button from "./components/Button";
+import AnimatedBackground from "./components/AnimatedBackground";
+import EasterEgg from "./components/EasterEgg";
 
 export default function Home() {
+  const totalEggs = 10; // Total eggs to find
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [foundEggs, setFoundEggs] = useState(0);
+  const [gameOver, setGameOver] = useState(false); // Track game over state
+
+  const startGame = () => {
+    setIsPlaying(true);
+    setFoundEggs(0); // Reset the counter
+    setGameOver(false); // Reset game over state
+  };
+
+  const stopGame = () => {
+    setIsPlaying(false);
+    setGameOver(false); // Reset the game-over state
+  };
+
+  const handleEggFound = () => {
+    setFoundEggs((prev) => prev + 1);
+    if (foundEggs + 1 === totalEggs) {
+      // Stop the game when all eggs are found
+      stopGame();
+      setGameOver(true);
+    }
+  };
+
   return (
     <>
       <Navbar />
-      <main className="min-h-screen flex flex-col">
-        {/* Top Section: Header (Left) and Lottie Animation (Right) */}
-        <div className="flex-1 flex items-center  "
-        >
-          {/* Header (Left-Aligned) */}
-          <div className="flex justify-center items-center h-full">
-            <div className="flex flex-col items-center justify-center h-full">
-              <Header title='The bridge between opportunity and talent.'/>
-              <Quotes />
-            </div>
-          </div>
-          {/* Lottie Animation (Right-Aligned) */}
-          <div className="flex justify-center w-1/2">
-            <LottieAnimation
-              src="/lottie/lottie-animation.json"
-              className="w-3/4 h-auto max-w-full max-h-full"
-            />
-          </div>
-        </div>
+      <AnimatedBackground>
+        <main className="min-h-screen flex flex-col items-center justify-center text-white text-center px-6 relative">
+          {/* Title */}
+          <Header
+            title="The bridge between opportunity and talent."
+            classDeco="text-white"
+          />
 
-        {/* Bottom Section: Features and Buttons */}
-        <div className="flex-1 flex flex-col justify-center bg-white text-black p-6">
-          <Features />
-          <div className="flex mt-8 justify-center my-5">
-            <Button 
-              label="I’m a Student" />
+          {/* Call to Action Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center items-center my-20 gap-4">
+            <Button
+              label="I’m a Student"
+              className="bg-indigo-600 hover:bg-indigo-700 px-6 py-3 text-lg rounded-md text-white w-full sm:w-auto"
+            />
             <Button
               label="I’m a Startup"
-              className="ml-4 hover:bg-purple-700"
+              className="bg-purple-600 hover:bg-purple-700 px-6 py-3 text-lg rounded-md text-white w-full sm:w-auto"
             />
           </div>
-        </div>
-      </main>
+
+          {/* Subtle Start/Stop Button */}
+          <button
+            onClick={isPlaying ? stopGame : startGame}
+            className="absolute bottom-4 left-4 text-xs md:text-sm rounded-md text-white  z-50 px-3 py-2 transform transition-transform duration-300 hover:scale-150 "
+            aria-label="Toggle Easter Egg Hunt"
+          >
+            {isPlaying ? "Stop Playing" : "Play"}
+          </button>
+
+          {/* Easter Eggs */}
+          {isPlaying && (
+            <div className="absolute inset-0">
+              {Array.from({ length: totalEggs }).map((_, index) => (
+                <EasterEgg key={index} onFound={handleEggFound} />
+              ))}
+            </div>
+          )}
+
+          {/* Found Eggs Counter */}
+          {isPlaying && (
+            <div className="absolute bottom-4 text-sm">
+              {foundEggs} eggs found so far!
+            </div>
+          )}
+
+          {/* Game Over Message */}
+          {gameOver && (
+            <div className="transform text-white my-5 px-6 py-4 rounded-lg  text-lg">
+              🎉 Congratulations! You found all the eggs! 🎉
+            </div>
+          )}
+        </main>
+      </AnimatedBackground>
     </>
   );
 }

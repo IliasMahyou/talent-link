@@ -5,7 +5,11 @@ type Types = {
 
 export default function Header({ title, classDeco }: Types) {
   return (
-    <h3 className={`text-6xl font-bold opacity-100 w-2/3  ${classDeco || ""}`}>
+    <h3
+      className={`text-6xl font-bold opacity-100 w-2/3 ${
+        classDeco || "text-left text-white"
+      }`}
+    >
       {title}
     </h3>
   );
