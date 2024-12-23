@@ -3,6 +3,7 @@ import LottieAnimation from "../../components/LottieAnitmation";
 import Header from "../../components/Header";
 import AnimatedBackground from "../../components/AnimatedBackground";
 import AnimatedContent from "../../components/AnimatedContent";
+import AnimatedBackgroundParticles from "@/app/components/AnimatedBackgroundParticles";
 
 const About = () => {
   const textBlocks = [
@@ -26,7 +27,7 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <AnimatedBackground>
+      <AnimatedBackgroundParticles>
         <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl p-6 md:p-12 space-y-8 md:space-y-0 md:space-x-8">
           {/* Left: Animated Header and Content */}
           <AnimatedContent
@@ -48,7 +49,7 @@ const About = () => {
             />
           </div>
         </div>
-      </AnimatedBackground>
+      </AnimatedBackgroundParticles>
     </>
   );
 };
