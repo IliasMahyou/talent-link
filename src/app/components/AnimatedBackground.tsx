@@ -21,7 +21,7 @@ export default function AnimatedBackground({
   #1e293b 80%,  /* Midnight Blue */
   #0f172a 100%  /* Dark Navy */
       )`,
-      duration: 7,
+      duration: 10,
       backgroundSize: '200% 200%',
       ease: 'linear',
       repeat: -1,
