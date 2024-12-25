@@ -23,6 +23,7 @@ body {
   overflow-x: hidden; /* Prevent horizontal scrolling */
   min-height: 100vh;
   min-height: -webkit-fill-available;
+  opacity: 70;
 }
 
 
